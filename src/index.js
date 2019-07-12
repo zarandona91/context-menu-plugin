@@ -14,11 +14,12 @@ function install(editor, {
     rename = component => component.name,
     vueComponent = null,
     defaultNodeItems = true,
+    addComponents = true
 }) {
     editor.bind('hidecontextmenu');
     editor.bind('showcontextmenu');
 
-    const mainMenu = new MainMenu(editor, { searchBar, searchKeep, delay }, vueComponent, { items, allocate, rename });
+    const mainMenu = new MainMenu(editor, { searchBar, searchKeep, delay }, vueComponent, { items, allocate, rename }, addComponents);
     const nodeMenu = new NodeMenu(editor, { searchBar: false, delay }, vueComponent, nodeItems, defaultNodeItems);
 
     editor.on('hidecontextmenu', () => {
